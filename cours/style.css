@@ -9,6 +9,7 @@ body {
     margin: 0;
     color: white;
     min-height: 200vh;
+    overflow-x: hidden;
 }
 .box {
     border: 6px solid white;
@@ -33,4 +34,18 @@ p {
     visibility: visible;
     opacity: 1;
     transform: translateX(0);
+}
+
+/* mouse move effects */
+.mousemove {
+    height: 50px;
+    width: 50px;
+    border: 2px solid pink;
+    position: absolute;
+    left: 277px;
+    top: 435px;
+    border-radius: 50px;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+   
 }
