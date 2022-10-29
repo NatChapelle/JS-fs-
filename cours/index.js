@@ -52,3 +52,14 @@ window.addEventListener("mouseup", () => {
   mousemove.style.border ="2px solid green";
 });
 
+questionContainer.addEventListener("mouseenter", ()=> {
+  questionContainer.style.background ="rgba(0,0,0,0.6)";
+});
+questionContainer.addEventListener("mouseout", () => {
+ questionContainer.style.background = "pink";});
+
+response.addEventListener('mouseover', () => {
+  response.style.transform = "rotate(2deg)";
+})
+
+// -----------------------------------------
