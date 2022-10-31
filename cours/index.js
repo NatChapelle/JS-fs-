@@ -101,3 +101,16 @@ window.addEventListener('scroll',() => {
 })
 
 //----------------------------------
+// event sur input
+const inputName = document.querySelector('input[type ="text"]');
+const select = document.querySelector ("select");
+let pseudo = "";
+let language = "";
+
+inputName.addEventListener('input', (e)=> {
+  pseudo = e.target.value;
+  console.log(pseudo);
+})
+select.addEventListener('input', (e) => {
+  console.log(e.target.value);
+})
