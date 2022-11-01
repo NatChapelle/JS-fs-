@@ -104,13 +104,45 @@ window.addEventListener('scroll',() => {
 // event sur input
 const inputName = document.querySelector('input[type ="text"]');
 const select = document.querySelector ("select");
+const form = document.querySelector ("form");
 let pseudo = "";
 let language = "";
+
 
 inputName.addEventListener('input', (e)=> {
   pseudo = e.target.value;
   console.log(pseudo);
-})
+});
 select.addEventListener('input', (e) => {
-  console.log(e.target.value);
+  language = e.target.value;
+});
+
+form.addEventListener("submit", (e)=> {
+  e.preventDefault();//annule le chgnt de page par defaut
+  
+  if (cgv.checked)//inutile declarer la const, pour les checkboxes, elles st automatiquement reconnues via id; idem pr les boutons avc id
+{
+  //afficher le contenu des variables
+  document.querySelector("form > div").innerHTML = ` 
+  <h3>Pseudo: ${pseudo} </h3>
+  <h4> Langage préféré : ${language} </h4>
+  `;
+} else {
+  alert("Veuillez accepter les CGV")
+}
 })
+
+//-------------------------------
+// load event se declenche 1X que la page a été chargée
+window.addEventListener('load', () => {
+ console.log("document chargé !");
+});
+//-------------------------------
+//for each
+
+const boxes = document.querySelectorAll(".box");
+boxes.forEach((box) => {
+  box.addEventListener("click", (e) => {
+    e.target.style.transform = "scale(0.7)";
+  });
+});
