@@ -146,3 +146,44 @@ boxes.forEach((box) => {
     e.target.style.transform = "scale(0.7)";
   });
 });
+
+//-----------------------------------
+// addEventListener vs onclick
+// document.body.onclick = () => {
+//     console.log("click!!");
+// };
+
+//bubbling => fin .de base eventListener est paramétré en mode bubbling
+document.body.addEventListener("click", () => {
+  console.log("click 1 !");
+}, false);//de base bubbling est sur false
+
+//usecapture
+document.body.addEventListener("click", () => {
+  console.log("click 2 !");
+}, true);
+
+//---------------------------------
+// stop Propagation
+// questionContainer.addEventListener("click", (e) => {
+//   alert("test !");
+//   e.stopPropagation();//pr eviter qu1 element ecrase un autre
+// });
+
+//removeEventListener
+
+//-----------------------------------
+// le BOM browser object model
+//les evenemenst adossés à window 
+// alert("hello !");
+
+//confirm
+btn2.addEventListener('click', () => {
+confirm("Voulez-vous vraiment vous tromper ?");
+});
+
+//prompt
+btn1.addEventListener("click", () => {
+  let answer = prompt("entrez votre nom !");
+  questionContainer.innerHTML += "<h3> bravo "+ answer + "</h3>";
+});//ici le += permet de mettre le h3 à la suite sans ecraser le reste du texte

@@ -8,5 +8,10 @@ buttons.forEach((button) => {
     })
 })
 equal.addEventListener("click",() => {
-     result.textContent = eval(result.textContent);
+     result.textContent = eval(result.textContent);//eval calcule le resultat
 });
+clear.addEventListener("click",() => {
+    result.textContent = ""; //remet le compteur à 0
+});
+
+
