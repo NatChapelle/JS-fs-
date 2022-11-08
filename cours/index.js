@@ -90,7 +90,7 @@ document.addEventListener("keypress", (e) => {
 
 const nav = document.querySelector("nav");
 
-window.addEventListener('scroll',() => {
+window.addEventListener("scroll", () => {
   console.log(window.scrollY);
 
   if (window.scrollY > 120) {
@@ -98,44 +98,43 @@ window.addEventListener('scroll',() => {
   } else {
     nav.style.top = "-50px";
   }
-})
+});
 
 //----------------------------------
 // event sur input
 const inputName = document.querySelector('input[type ="text"]');
-const select = document.querySelector ("select");
-const form = document.querySelector ("form");
+const select = document.querySelector("select");
+const form = document.querySelector("form");
 let pseudo = "";
 let language = "";
 
-
-inputName.addEventListener('input', (e)=> {
+inputName.addEventListener("input", (e) => {
   pseudo = e.target.value;
   console.log(pseudo);
 });
-select.addEventListener('input', (e) => {
+select.addEventListener("input", (e) => {
   language = e.target.value;
 });
 
-form.addEventListener("submit", (e)=> {
-  e.preventDefault();//annule le chgnt de page par defaut
-  
-  if (cgv.checked)//inutile declarer la const, pour les checkboxes, elles st automatiquement reconnues via id; idem pr les boutons avc id
-{
-  //afficher le contenu des variables
-  document.querySelector("form > div").innerHTML = ` 
+form.addEventListener("submit", (e) => {
+  e.preventDefault(); //annule le chgnt de page par defaut
+
+  if (cgv.checked) {
+    //inutile declarer la const, pour les checkboxes, elles st automatiquement reconnues via id; idem pr les boutons avc id
+    //afficher le contenu des variables
+    document.querySelector("form > div").innerHTML = ` 
   <h3>Pseudo: ${pseudo} </h3>
   <h4> Langage préféré : ${language} </h4>
   `;
-} else {
-  alert("Veuillez accepter les CGV")
-}
-})
+  } else {
+    alert("Veuillez accepter les CGV");
+  }
+});
 
 //-------------------------------
 // load event se declenche 1X que la page a été chargée
-window.addEventListener('load', () => {
- console.log("document chargé !");
+window.addEventListener("load", () => {
+  console.log("document chargé !");
 });
 //-------------------------------
 //for each
@@ -154,14 +153,22 @@ boxes.forEach((box) => {
 // };
 
 //bubbling => fin .de base eventListener est paramétré en mode bubbling
-document.body.addEventListener("click", () => {
-  console.log("click 1 !");
-}, false);//de base bubbling est sur false
+document.body.addEventListener(
+  "click",
+  () => {
+    console.log("click 1 !");
+  },
+  false
+); //de base bubbling est sur false
 
 //usecapture
-document.body.addEventListener("click", () => {
-  console.log("click 2 !");
-}, true);
+document.body.addEventListener(
+  "click",
+  () => {
+    console.log("click 2 !");
+  },
+  true
+);
 
 //---------------------------------
 // stop Propagation
@@ -174,16 +181,59 @@ document.body.addEventListener("click", () => {
 
 //-----------------------------------
 // le BOM browser object model
-//les evenemenst adossés à window 
+//les evenemenst adossés à window
 // alert("hello !");
 
 //confirm
-btn2.addEventListener('click', () => {
-confirm("Voulez-vous vraiment vous tromper ?");
+btn2.addEventListener("click", () => {
+  confirm("Voulez-vous vraiment vous tromper ?");
 });
 
 //prompt
 btn1.addEventListener("click", () => {
   let answer = prompt("entrez votre nom !");
-  questionContainer.innerHTML += "<h3> bravo "+ answer + "</h3>";
-});//ici le += permet de mettre le h3 à la suite sans ecraser le reste du texte
+  questionContainer.innerHTML += "<h3> bravo " + answer + "</h3>";
+}); //ici le += permet de mettre le h3 à la suite sans ecraser le reste du texte
+
+//setTimeout
+// setTimeout(() => {
+//logique à executer
+// }, 'temps en milliseconde avant de declencher')
+// setTimeout(() => {
+  // questionContainer.style.borderRadius = "300px";
+// }, 3000);
+
+let interval = setInterval(() => {
+  document.body.innerHTML += `
+    <div class='box'>
+      <h2>Nouvelle boite !</h2>
+    </div>
+  `;
+}, 2000);
+document.body.addEventListener("click", () => {
+  clearInterval(interval);
+});
+
+//location
+
+// console.log(location.href);
+// console.log(location.host);
+// console.log(location.pathname);
+// console.log(location.search);
+//location.replace("http://lequipe.fr");redirige vers un autre lien
+//ou bien window.onLoad = () => {
+  // location.href ="http://twitter .fr";
+// }; au load , envoie sur twitter
+
+// Navigator
+// console.log(navigator.userAgent);donne ttes infos sur données de navigation
+
+//permet de montrer la localisation
+// mozilla geolocalisation de l'utilisateur
+
+// History 
+// console.log(window.history); //contient historique de navigation
+//window.history .back () retour page precedente
+
+//----------------------
+//setProperty
