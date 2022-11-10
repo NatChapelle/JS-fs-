@@ -1,3 +1,6 @@
+const counterDisplay = document.querySelector('h3');
+let counter = 0;
+
 const bubbleMaker = () => {
   const bubble = document.createElement("span");
   bubble.classList.add("bubble");
@@ -14,6 +17,8 @@ const bubbleMaker = () => {
   bubble.style.setProperty("--left", Math.random() * 100 + plusMinus +"%");
 
   bubble.addEventListener('click',() => {
+    counter++; //ajoute nbre bubbles clicked
+    counterDisplay.textContent = counter;//affiche nbre de bulles clicked
     bubble.remove();
   })
 
